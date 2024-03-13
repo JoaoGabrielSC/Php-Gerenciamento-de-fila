@@ -1,0 +1,36 @@
+img
+{
+    width         : 100px;
+    border-radius : 10px;
+    float         : left;
+    margin-right  : 10px;
+}
+
+.div
+{
+    border   : 1px solid;
+    margin   : auto;
+    width    : 20%;
+    padding  : 10px;
+}
+
+table,td,th
+{
+    border          : 1px solid black;
+    border-collapse : collapse;
+}
+
+th
+{
+    width : 200px;   
+}
+
+td
+{
+    text-align : center;
+}
+
+tr
+{
+    height : 30px;
+}

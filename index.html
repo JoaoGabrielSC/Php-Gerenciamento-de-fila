@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Pacientes e Guichês</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .list-column {
+            flex: 0 0 65%;
+            padding-right: 20px;
+        }
+
+        .guiche-column {
+            flex: 0 0 30%;
+        }
+
+        .guiche-card {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<div class="container">
+    <h1 class="title">Lista de Pacientes e Guichês</h1>
+
+    <div class="row">
+        <div class="list-column">
+            <h2>Lista de Pacientes</h2>
+            <div id="lista-pacientes">
+                <!-- Conteúdo da lista de pacientes será preenchido via JavaScript -->
+            </div>
+            <button onclick="excluirPrimeiroPaciente()">Excluir Primeiro Paciente</button>
+        </div>
+
+        <div class="guiche-column">
+            <div class="card guiche-card">
+                <div class="card-header">
+                    Guichê 1
+                </div>
+                <div class="card-body" id="guiche1">
+                    <!-- Conteúdo do Guichê 1 será preenchido via JavaScript -->
+                </div>
+            </div>
+
+            <div class="card guiche-card">
+                <div class="card-header">
+                    Guichê 2
+                </div>
+                <div class="card-body" id="guiche2">
+                    <!-- Conteúdo do Guichê 2 será preenchido via JavaScript -->
+                </div>
+            </div>
+
+            <div class="card guiche-card">
+                <div class="card-header">
+                    Guichê 3
+                </div>
+                <div class="card-body" id="guiche3">
+                    <!-- Conteúdo do Guichê 3 será preenchido via JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+        
+        // Função para fazer a solicitação AJAX
+        function obterPacientes() {
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var pacientes = JSON.parse(this.responseText);
+                    exibirPacientes(pacientes);
+                    organizarGuiches(pacientes);
+                }
+            };
+
+            xhttp.open("GET", "getPacientes.php", true);
+            xhttp.send();
+        }
+
+        // Função para exibir os pacientes na lista
+        function exibirPacientes(pacientes) {
+            var listaPacientesDiv = document.getElementById("lista-pacientes");
+
+            // Limpa o conteúdo atual da lista
+            listaPacientesDiv.innerHTML = "<h3>Lista de Pacientes</h3>";
+
+            // Adiciona os pacientes à lista
+            for (var i = 0; i < pacientes.length; i++) {
+                var paciente = pacientes[i];
+                var pacienteDiv = document.createElement("div");
+                pacienteDiv.innerHTML = `<strong>Nome do paciente:</strong> ${paciente.nome} | <strong>Tipo de consulta:</strong> ${paciente.queue_type} | <strong>Especialidade:</strong> ${paciente.especialidade}`;
+                listaPacientesDiv.appendChild(pacienteDiv);
+            }
+        }
+
+        // Função para organizar os pacientes nos guichês
+        function organizarGuiches(pacientes) {
+            var guiche1Div = document.getElementById("guiche1");
+            var guiche2Div = document.getElementById("guiche2");
+            var guiche3Div = document.getElementById("guiche3");
+
+            // Limpa o conteúdo atual dos guichês
+            guiche1Div.innerHTML = "";
+            guiche2Div.innerHTML = "";
+            guiche3Div.innerHTML = "";
+
+            // Adiciona os pacientes aos guichês
+            for (var i = 0; i < pacientes.length; i++) {
+                var paciente = pacientes[i];
+                var pacienteDiv = document.createElement("div");
+                pacienteDiv.innerHTML = `<strong>Nome do paciente:</strong> ${paciente.nome} | <strong>Tipo de consulta:</strong> ${paciente.queue_type} | <strong>Especialidade:</strong> ${paciente.especialidade}`;
+
+                // Adiciona o paciente ao guichê correspondente
+                if (paciente.queue_type === 'prioridade' && guiche1Div.childElementCount === 0) {
+                    guiche1Div.appendChild(pacienteDiv);
+                } else if (paciente.queue_type === 'normal' && guiche2Div.childElementCount === 0) {
+                    guiche2Div.appendChild(pacienteDiv);
+                } else if (paciente.queue_type === 'normal' && guiche3Div.childElementCount === 0) {
+                    guiche3Div.appendChild(pacienteDiv);
+                }
+            }
+        }
+        function excluirPrimeiroPaciente() {
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                // Atualize a lista e guichês após a exclusão
+                obterPacientes();
+            }
+        };
+
+        xhttp.open("GET", "excluirPaciente.php", true);
+        xhttp.send();
+        }
+
+        // Chama a função para obter os pacientes ao carregar a página
+        obterPacientes();
+    </script>
+</body>
+</html>
