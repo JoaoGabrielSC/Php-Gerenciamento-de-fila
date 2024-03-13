@@ -3,12 +3,6 @@
 <h1>Gerenciamento de fila com PHP e SQL</h1>
 <p>Uma breve descrição do seu projeto.</p>
 
-<h2>Como Usar</h2>
-<p>Forneça instruções claras sobre como instalar e utilizar o seu projeto.</p>
-
-<h2>Exemplos</h2>
-<p>Inclua alguns exemplos de código ou casos de uso para ajudar os usuários a entenderem melhor o seu projeto.</p>
-
 <h2>Imagens</h2>
 <p>Veja abaixo algumas capturas de tela do projeto:</p>
 
