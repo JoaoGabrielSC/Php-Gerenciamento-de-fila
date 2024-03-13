@@ -5,16 +5,9 @@
 
 <h2>Imagens</h2>
 <p>Veja abaixo algumas capturas de tela do projeto:</p>
-https://drive.google.com/open?id=1XsSNxlZqLXwQTfXIUQVSQEZ3XNrf_9eR&usp=drive_copy
-<!-- Imagem 1 com link -->
-<a href="URL_DA_IMAGEM_1" target="_blank">
-    <img src="https://drive.google.com/file/d/1QuCIRzb6KO07TklyFi-5KphCRNWbTuhg/view?usp=drive_link" alt="Descrição da Imagem 1">
-</a>
 
-<!-- Imagem 2 com link -->
-<a href="URL_DA_IMAGEM_2" target="_blank">
-    <img src="https://drive.google.com/file/d/1XsSNxlZqLXwQTfXIUQVSQEZ3XNrf_9eR/view?usp=drive_link" alt="Descrição da Imagem 2">
-</a>
+![formulario_gerenciamento_fila](https://github.com/JoaoGabrielSC/Php-Gerenciamento-de-fila/assets/88412213/f850d1bb-a817-4c9e-9878-96bd29e70d23)
+![guiche_pacientes](https://github.com/JoaoGabrielSC/Php-Gerenciamento-de-fila/assets/88412213/309011ab-268e-47ef-b663-aa94a9570839)
 
 <!-- Adicione mais imagens conforme necessário -->
 
