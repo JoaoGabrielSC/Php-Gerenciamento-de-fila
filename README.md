@@ -8,7 +8,7 @@
 
 <!-- Imagem 1 com link -->
 <a href="URL_DA_IMAGEM_1" target="_blank">
-    <img src="https://drive.google.com/file/d/1QuCIRzb6KO07TklyFi-5KphCRNWbTuhg/view?usp=sharing" alt="Descrição da Imagem 1">
+    <img src="https://drive.google.com/file/d/1QuCIRzb6KO07TklyFi-5KphCRNWbTuhg/view?usp=drive_link" alt="Descrição da Imagem 1">
 </a>
 
 <!-- Imagem 2 com link -->
